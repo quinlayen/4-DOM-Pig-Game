@@ -10,7 +10,8 @@
 
 // victory condition is first player to reach 100.  Use a while loop indicating that all fucntions will work as long as player GLBAL score is less than 100
 
-let score = [];
+let score0 = 0;
+let score1 = 0;
 let roundScore = 0;
 let activePlayer = 0;
 let dice;
@@ -24,10 +25,12 @@ let newGame = function(){
     document.getElementById('current-1').textContent = '0';
     document.querySelector('#score-0').textContent= '0';
     document.querySelector('#score-1').textContent= '0';
+    activePlayer = 0;
 };
 
 //this function is used to change the active player
 let changeActivePlayer = function(){
+    totalDice = 0;
     if (activePlayer === 0){
         activePlayer = 1;
     } else {
@@ -38,10 +41,12 @@ let changeActivePlayer = function(){
 // this function is used to change the globalScoring variable
 let globalScoring = function(){
     if (activePlayer === 0){
-        document.querySelector('#score-0').textContent=score[0]=(totalDice);
+        score0 = score0 + currentScore;
+        globalScore = document.querySelector('#score-0').textContent=score0;
         changeActivePlayer();
     } else {
-        document.querySelector('#score-1').textContent=score[1]=(totalDice);
+        score1 = score1 + currentScore;
+        globalScore = document.querySelector('#score-1').textContent=score1;
         changeActivePlayer();
     }
 };
