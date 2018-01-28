@@ -10,14 +10,16 @@
 
 // victory condition is first player to reach 100.  Use a while loop indicating that all fucntions will work as long as player GLBAL score is less than 100
 
-let score0 = 0;
-let score1 = 0;
-let roundScore = 0;
+let score0 = null;
+let score1 = null;
 let activePlayer = 0;
 let dice;
 let globalScore;
 let totalDice = 0;
 let currentScore;
+
+
+
 
 //this function starts a new game
 let newGame = function(){
@@ -40,17 +42,18 @@ let changeActivePlayer = function(){
 
 // this function is used to change the globalScoring variable
 let globalScoring = function(){
+    globalScore = Math.max(score0,score1);
     if (activePlayer === 0){
         score0 = score0 + currentScore;
-        globalScore = document.querySelector('#score-0').textContent=score0;
+        document.querySelector('#score-0').textContent=score0;
         changeActivePlayer();
     } else {
         score1 = score1 + currentScore;
-        globalScore = document.querySelector('#score-1').textContent=score1;
+        document.querySelector('#score-1').textContent=score1;
         changeActivePlayer();
     }
+    globalScore = Math.max(score0,score1)
 };
-
 // this function controls the roll mechanism of the game
 let roll = function(){
     dice = Math.floor(Math.random()*6)+1;
