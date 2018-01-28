@@ -20,8 +20,11 @@ let currentScore;
 
 //this function starts a new game
 let newGame = function(){
-    
-}
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+    document.querySelector('#score-0').textContent= '0';
+    document.querySelector('#score-1').textContent= '0';
+};
 
 //this function is used to change the active player
 let changeActivePlayer = function(){
@@ -31,8 +34,6 @@ let changeActivePlayer = function(){
         activePlayer = 0;
     }
 };
-
-
 
 // this function is used to change the globalScoring variable
 let globalScoring = function(){
@@ -61,7 +62,6 @@ let roll = function(){
     } else {
         document.getElementById('dice').src=('dice-6.png');
     }
-
     if (dice !== 1){
         totalDice = dice + totalDice;
         currentScoring();
@@ -80,3 +80,4 @@ let currentScoring = function(){
 
 document.querySelector('.btn-roll').addEventListener('click', roll);
 document.querySelector('.btn-hold').addEventListener('click', globalScoring);
+document.querySelector('.btn-new').addEventListener('click', newGame);
